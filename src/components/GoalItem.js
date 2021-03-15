@@ -1,9 +1,12 @@
 import React from 'react'
 
-export default function GoalItem() {
+export default function GoalItem(props) {
+    const goals = props.goals
     return (
-        <div>
-
-        </div>
+        <ul>
+            {goals.map((goal) =>
+                <li>{goal}</li>
+            )}
+        </ul>
     )
 }
