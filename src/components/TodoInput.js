@@ -8,6 +8,7 @@ export default function TodoInput({ addTodo }) {
         addTodo([todo])
         setTodo('')
     }
+
     return (
         <form className="todo__form" onSubmit={handleSubmit}>
             <label for="todo">Todo: </label>
