@@ -5,7 +5,7 @@ export default function TodoItem(props) {
     return (
         <ul>
             {todos.map((todo) =>
-                todo
+                <li>{todo}</li>
             )}
         </ul>
     )
