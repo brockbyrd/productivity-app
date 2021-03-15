@@ -10,9 +10,10 @@ export default function TodoList() {
     }
 
     return (
-        <>
+        <div className="todos__list">
+            <h1>Daily Todos</h1>
             <TodoInput addTodo={addTodo} />
             <TodoItem todos={todos} />
-        </>
+        </div>
     )
 }
