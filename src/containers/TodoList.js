@@ -9,11 +9,17 @@ export default function TodoList() {
         setTodos(newTodo)
     }
 
+    const removeTodo = (id) => {
+        const todoRemove = todos.filter((todo) => todo.id !== id);
+
+        setTodos(todoRemove);
+    }
+
     return (
         <div className="todos__list">
             <h1>Daily Todos</h1>
             <TodoInput addTodo={addTodo} />
-            <TodoItem todos={todos} />
+            <TodoItem todos={todos} removeTodo={removeTodo} />
         </div>
     )
 }
