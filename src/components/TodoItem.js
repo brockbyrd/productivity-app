@@ -12,7 +12,7 @@ export default function TodoItem(props) {
         <ul>
             {todos.map((todo) =>
             <>
-                <li key={todo.id}>{todo}<button onClick={() => handleClick(todo.id)}>X</button></li>
+                <li key={todo.id}>{todo}<button onClick={() => handleClick(todo.id)}>Complete</button></li>
             </>
             )}
         </ul>
