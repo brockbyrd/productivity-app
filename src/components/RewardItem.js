@@ -1,9 +1,15 @@
 import React from 'react'
 
-export default function RewardItem() {
-    return (
-        <div>
+export default function RewardItem(props) {
+    const rewards = props.rewards
 
-        </div>
+    return (
+        <ul>
+            {rewards.map((reward) =>
+                <>
+                <li>{reward}</li>
+                </>
+            )}
+        </ul>
     )
 }
