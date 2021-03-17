@@ -5,6 +5,7 @@ import TodoList from '../components/TodoList'
 
 export default function TodoContainer() {
     const [todos, setTodos] = useStickyState([], 'todos')
+
     const addTodo = todo => {
         let newTodo = [...todos, todo];
         setTodos(newTodo)
