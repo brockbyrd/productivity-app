@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function GoalItem(props) {
+export default function GoalList(props) {
     const goals = props.goals
     return (
         <ul>

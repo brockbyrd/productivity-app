@@ -1,14 +1,14 @@
 import './App.css';
-import TodoList from './containers/TodoList'
-import GoalsList from './containers/GoalsList'
-import RewardsList from './containers/RewardsList'
+import TodoContainer from './containers/TodoContainer'
+import GoalsContainer from './containers/GoalsContainer'
+import RewardsContainer from './containers/RewardsContainer'
 
 function App() {
   return (
     <div className="App">
-      <GoalsList />
-      <TodoList />
-      <RewardsList />
+      <GoalsContainer />
+      <TodoContainer />
+      <RewardsContainer />
     </div>
   );
 }

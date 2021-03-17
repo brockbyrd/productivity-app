@@ -1,16 +1,16 @@
 import React from 'react'
 import useStickyState from '../customHooks/useStickyState';
 import TodoInput from '../components/TodoInput'
-import TodoItem from '../components/TodoItem'
+import TodoList from '../components/TodoList'
 
-export default function TodoList() {
+export default function TodoContainer() {
     const [todos, setTodos] = useStickyState([], 'todos')
     const addTodo = todo => {
         let newTodo = [...todos, todo];
         setTodos(newTodo)
     }
 
-    const removeTodo = (id) => {
+    function handleRemove(id) {
         const todoRemove = todos.filter((todo) => todo.id !== id);
 
         setTodos(todoRemove);
@@ -20,7 +20,7 @@ export default function TodoList() {
         <div className="todos__list">
             <h1>Daily Todos</h1>
             <TodoInput addTodo={addTodo} />
-            <TodoItem todos={todos} removeTodo={removeTodo} />
+            <TodoList todos={todos} onRemove={handleRemove} />
         </div>
     )
 }

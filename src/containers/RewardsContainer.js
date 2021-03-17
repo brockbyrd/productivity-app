@@ -1,9 +1,9 @@
 import React from 'react'
 import useStickyState from '../customHooks/useStickyState'
-import RewardItem from '../components/RewardItem'
+import RewardList from '../components/RewardList'
 import RewardInput from '../components/RewardInput'
 
-export default function RewardsList() {
+export default function RewardsContainer() {
     const [rewards, setRewards] = useStickyState([], 'rewards')
 
     const addReward = reward => {
@@ -15,7 +15,7 @@ export default function RewardsList() {
         <div className="rewards__list">
             <h1>Rewards</h1>
             <RewardInput addReward={addReward} />
-            <RewardItem rewards={rewards}/>
+            <RewardList rewards={rewards}/>
         </div>
     )
 }
