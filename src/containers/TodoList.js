@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
+import useStickyState from '../customHooks/useStickyState';
 import TodoInput from '../components/TodoInput'
 import TodoItem from '../components/TodoItem'
 
 export default function TodoList() {
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useStickyState([], 'todos')
     const addTodo = todo => {
         let newTodo = [...todos, todo];
         setTodos(newTodo)

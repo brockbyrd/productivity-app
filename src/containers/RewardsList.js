@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
+import useStickyState from '../customHooks/useStickyState'
 import RewardItem from '../components/RewardItem'
 import RewardInput from '../components/RewardInput'
 
 export default function RewardsList() {
-    const [rewards, setRewards] = useState([])
+    const [rewards, setRewards] = useStickyState([], 'rewards')
 
     const addReward = reward => {
         let newReward = [...rewards, reward];
