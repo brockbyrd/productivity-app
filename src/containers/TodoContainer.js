@@ -12,9 +12,8 @@ export default function TodoContainer() {
     }
 
     function handleRemove(id) {
-        const todoRemove = todos.filter((todo) => todo.id !== id);
-
-        setTodos(todoRemove);
+        todos.splice(id, 1);
+        setTodos([...todos])
     }
 
     return (

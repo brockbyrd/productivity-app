@@ -5,7 +5,7 @@ export default function TodoList({ todos, onRemove }) {
     return (
         <ul>
             {todos.map((todo) => (
-                <TodoItem todo={todo} onRemove={onRemove} />
+                <TodoItem key={todo.id} todo={todo} onRemove={onRemove} />
             ))}
         </ul>
     )
