@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'semantic-ui-react'
 
 export default class GoalItem extends Component {
     render() {
@@ -7,7 +8,8 @@ export default class GoalItem extends Component {
         return (
             <li>
                {goal}
-               <button onClick={() => onRemove(goal)}>Complete</button>
+               <Button attached='left' onClick={() => onRemove(goal)}>Complete</Button>
+               <Button attached='right'>Clear</Button>
             </li>
         )
     }
