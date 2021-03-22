@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'semantic-ui-react'
 
 class TodoItem extends Component {
     render() {
@@ -7,7 +8,8 @@ class TodoItem extends Component {
         return (
             <li>
                 {todo}
-                <button onClick={() => onRemove(todo)}>Complete</button>
+                <Button attached='left' onClick={() => onRemove(todo)}>Complete</Button>
+                <Button attached="right">Clear</Button>
             </li>
         )
     }
