@@ -5,7 +5,7 @@ export default function TodoInput({ addTodo }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addTodo([todo]);
+        addTodo(todo);
         setTodo('');
     }
 

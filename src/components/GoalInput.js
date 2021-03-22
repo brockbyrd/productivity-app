@@ -5,7 +5,7 @@ export default function GoalInput({ addGoal }) {
 
     const handleSubmit = (e) => {
        e.preventDefault();
-       addGoal([goal]);
+       addGoal(goal);
        setGoal('');
     }
 

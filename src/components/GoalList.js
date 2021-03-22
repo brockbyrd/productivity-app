@@ -1,11 +1,13 @@
 import React from 'react'
+import GoalItem from './GoalItem'
 
-export default function GoalList(props) {
-    const goals = props.goals
+export default function GoalList({ goals, onRemove }) {
     return (
         <ul>
             {goals.map((goal) =>
-                <li>{goal}</li>
+            <>
+                <GoalItem key={goal.id} goal={goal} onRemove={onRemove} />
+            </>
             )}
         </ul>
     )

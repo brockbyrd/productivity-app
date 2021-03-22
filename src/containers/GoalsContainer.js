@@ -11,11 +11,15 @@ export default function GoalContainer() {
         setGoals(newGoal)
     }
 
+    function handleRemove(goal) {
+        setGoals(goals.filter(g => g !== goal))
+    }
+
     return (
         <div className="goals__list">
             <h1>Weekly Goals</h1>
             <GoalInput addGoal={addGoal} />
-            <GoalList goals={goals} />
+            <GoalList goals={goals} onRemove={handleRemove} />
         </div>
     )
 }

@@ -11,9 +11,8 @@ export default function TodoContainer() {
         setTodos(newTodo)
     }
 
-    function handleRemove(id) {
-        todos.splice(id, 1);
-        setTodos([...todos])
+    function handleRemove(todo) {
+        setTodos(todos.filter(t => t !== todo))
     }
 
     return (

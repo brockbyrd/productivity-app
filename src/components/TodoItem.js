@@ -7,7 +7,7 @@ class TodoItem extends Component {
         return (
             <li>
                 {todo}
-                <button onClick={() => onRemove(todo.id)}>Complete</button>
+                <button onClick={() => onRemove(todo)}>Complete</button>
             </li>
         )
     }
