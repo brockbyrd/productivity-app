@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Form, Input, Button } from 'semantic-ui-react';
 
 export default function GoalInput({ addGoal }) {
     const [goal, setGoal] = useState('');
@@ -10,10 +11,20 @@ export default function GoalInput({ addGoal }) {
     }
 
     return (
-        <form classname="goal__form" onSubmit={handleSubmit}>
-            <label for="goal">Goal: </label>
-            <input type="text" name="goal" value={goal} placeholder="Weekly Goal" onChange={e => setGoal(e.target.value)} />
-            <input type="submit" value="Add Goal" />
-        </form>
+        <Form classname="goal__form" onSubmit={handleSubmit}>
+            <Form.Field>
+                <Form.Group>
+                    <Input
+                        icon='plus'
+                        iconPosition='left'
+                        type="text"
+                        name="goal"
+                        value={goal}
+                        placeholder="Add Weekly Goal"
+                        onChange={e => setGoal(e.target.value)} />
+                    <Form.Button type="submit">Add Goal</Form.Button>
+                </Form.Group>
+            </Form.Field>
+        </Form>
     )
 }
