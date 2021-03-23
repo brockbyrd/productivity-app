@@ -2,7 +2,7 @@ import React from 'react'
 import useStickyState from '../customHooks/useStickyState';
 import TodoInput from '../components/TodoInput'
 import TodoList from '../components/TodoList'
-import { Grid } from 'semantic-ui-react';
+import { Grid, Header, Icon, Container } from 'semantic-ui-react';
 
 export default function TodoContainer() {
     const [todos, setTodos] = useStickyState([], 'todos')
@@ -17,11 +17,14 @@ export default function TodoContainer() {
     }
 
     return (
-        <div className="todos__list">
+        <Container fluid className="todos__list">
             <Grid centered columns={2}>
                 <Grid.Row>
                     <Grid.Column>
-                        <h1>Daily Todos</h1>
+                        <Header as='h1'>
+                            <Icon name='pencil'/>
+                            <Header.Content>Daily Todos</Header.Content>
+                        </Header>
                     </Grid.Column>
                 </Grid.Row>
 
@@ -31,13 +34,11 @@ export default function TodoContainer() {
                     </Grid.Column>
                 </Grid.Row>
 
-                <Grid.Row centered columns={2}>
-                    <Grid.Column>
-                        <TodoList todos={todos} onRemove={handleRemove} />
-                    </Grid.Column>
+                <Grid.Row centered>
+                    <TodoList todos={todos} onRemove={handleRemove} />
                 </Grid.Row>
             </Grid>
 
-        </div>
+        </Container>
     )
 }

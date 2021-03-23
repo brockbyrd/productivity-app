@@ -24,7 +24,7 @@ export default function GoalContainer() {
                         <Header as='h1'>
                             <Icon name='checkmark'/>
                             <Header.Content>Weekly Goals</Header.Content>
-                            </Header>
+                        </Header>
                     </Grid.Column>
                 </Grid.Row>
 

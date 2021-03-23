@@ -7,8 +7,8 @@ export default class GoalItem extends Component {
         const onRemove = this.props.onRemove
         return (
             <List.Item>
-               <List.Content>
-                   {goal}
+                {goal}
+               <List.Content floated='right' verticalAlign='middle'>
                    <Button attached='left'>Complete</Button>
                    <Button attached='right' onClick={() => onRemove(goal)}>Clear</Button>
                </List.Content>
