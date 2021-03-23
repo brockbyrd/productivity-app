@@ -1,14 +1,14 @@
 import React from 'react'
-import { List, Button } from 'semantic-ui-react'
+import RewardItem from './RewardItem'
+import { List } from 'semantic-ui-react'
 
-export default function RewardList(props) {
-    const rewards = props.rewards
+export default function RewardList({ rewards, onRemove}) {
 
     return (
-        <List>
+        <List size="huge" divided verticalAlign='middle'>
             {rewards.map((reward) =>
                 <>
-                <List.Item>{reward}<Button>Redeem</Button></List.Item>
+                    <RewardItem key={reward.id} reward={reward} onRemove={onRemove} />
                 </>
             )}
         </List>

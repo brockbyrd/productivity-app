@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Form, Input } from 'semantic-ui-react';
 
 export default function RewardInput({ addReward }) {
         const [reward, setReward] = useState('');
@@ -10,10 +11,20 @@ export default function RewardInput({ addReward }) {
         }
 
         return (
-            <form classname="reward__form" onSubmit={handleSubmit}>
-                <label for="reward">Reward: </label>
-                <input type="text" name="reward" value={reward} placeholder="Rewards" onChange={e => setReward(e.target.value)} />
-                <input type="submit" value="Add Reward" />
-            </form>
+            <Form classname="reward__form" onSubmit={handleSubmit}>
+                <Form.Field>
+                    <Form.Group>
+                    <Input
+                        icon='plus'
+                        iconPosition='left'
+                        type="text"
+                        name="reward"
+                        value={reward}
+                        placeholder="Rewards"
+                        onChange={e => setReward(e.target.value)} />
+                    <Form.Button type="submit">Add Reward</Form.Button>
+                    </Form.Group>
+                </Form.Field>
+            </Form>
         )
 }
