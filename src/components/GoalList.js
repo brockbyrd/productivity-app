@@ -1,14 +1,15 @@
 import React from 'react'
 import GoalItem from './GoalItem'
+import { List } from 'semantic-ui-react'
 
 export default function GoalList({ goals, onRemove }) {
     return (
-        <ul>
+        <List size="huge">
             {goals.map((goal) =>
-            <>
-                <GoalItem key={goal.id} goal={goal} onRemove={onRemove} />
-            </>
+                <>
+                    <GoalItem key={goal.id} goal={goal} onRemove={onRemove} />
+                </>
             )}
-        </ul>
+        </List>
     )
 }

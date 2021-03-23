@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Input, Button } from 'semantic-ui-react';
+import { Form, Input } from 'semantic-ui-react';
 
 export default function GoalInput({ addGoal }) {
     const [goal, setGoal] = useState('');

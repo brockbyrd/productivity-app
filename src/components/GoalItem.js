@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, List } from 'semantic-ui-react'
 
 export default class GoalItem extends Component {
     render() {
         const goal = this.props.goal
         const onRemove = this.props.onRemove
         return (
-            <li>
-               {goal}
-               <Button attached='left' onClick={() => onRemove(goal)}>Complete</Button>
-               <Button attached='right'>Clear</Button>
-            </li>
+            <List.Item>
+               <List.Content>
+                   {goal}
+                   <Button attached='left'>Complete</Button>
+                   <Button attached='right' onClick={() => onRemove(goal)}>Clear</Button>
+               </List.Content>
+            </List.Item>
         )
     }
 }
