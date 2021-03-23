@@ -17,7 +17,7 @@ export default function GoalContainer() {
     }
 
     return (
-        <Container fluid className="goals__container">
+        <Container className="goals__container">
             <Grid centered columns={2}>
                 <Grid.Row>
                     <Grid.Column>
@@ -33,11 +33,9 @@ export default function GoalContainer() {
                         <GoalInput addGoal={addGoal} />
                     </Grid.Column>
                 </Grid.Row>
-
-                <Grid.Row centered>
-                    <GoalList goals={goals} onRemove={handleRemove} />
-                </Grid.Row>
             </Grid>
+
+            <GoalList goals={goals} onRemove={handleRemove} />
         </Container>
     )
 }

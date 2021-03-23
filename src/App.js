@@ -7,24 +7,26 @@ import RewardsContainer from './containers/RewardsContainer'
 function App() {
   return (
     <div className="app">
-      <Container fluid>
-        <Grid columns={3} divided>
+        <Grid columns={1} divided='vertically'>
           <Grid.Row>
             Decoration
           </Grid.Row>
-          <Grid.Row>
+
+          <Grid.Row columns={3}>
             <Grid.Column>
               <GoalsContainer />
             </Grid.Column>
+
             <Grid.Column>
               <TodoContainer />
             </Grid.Column>
+
             <Grid.Column>
               <RewardsContainer />
             </Grid.Column>
+
           </Grid.Row>
         </Grid>
-      </Container>
     </div>
   );
 }
