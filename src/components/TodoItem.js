@@ -1,20 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
+import useStickyState from '../customHooks/useStickyState'
 import { Button, List } from 'semantic-ui-react'
 
-class TodoItem extends Component {
-    render() {
-        const todo = this.props.todo
-        const onRemove = this.props.onRemove
+export default function TodoItem ({ todo, onRemove }) {
+    const [complete, setComplete] = useStickyState(false, 'complete')
+
+    function handleComplete(todo) {
+        setComplete(!complete)
+    }
+
         return (
-            <List.Item>
+            <List.Item style={{ textDecoration: complete && 'line-through'}}>
                 {todo}
                 <List.Content floated='right'>
-                    <Button attached='left'>Complete</Button>
+                    <Button attached='left' onClick={() => handleComplete(todo)}>Complete</Button>
                     <Button attached='right' onClick={() => onRemove(todo)}>Clear</Button>
                 </List.Content>
             </List.Item>
         )
     }
-}
-
-export default TodoItem

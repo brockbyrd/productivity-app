@@ -1,5 +1,5 @@
 import './App.css';
-import { Grid, Container } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import TodoContainer from './containers/TodoContainer'
 import GoalsContainer from './containers/GoalsContainer'
 import RewardsContainer from './containers/RewardsContainer'

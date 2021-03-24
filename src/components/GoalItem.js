@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
+import useStickyState from '../customHooks/useStickyState'
 import { Button, List } from 'semantic-ui-react'
 
-export default class GoalItem extends Component {
-    render() {
-        const goal = this.props.goal
-        const onRemove = this.props.onRemove
+export default function GoalItem({ goal, onRemove }) {
+    const [complete, setComplete] = useStickyState(false, 'complete')
+
+    function handleComplete(goal){
+        setComplete(!complete)
+    }
+
         return (
-            <List.Item>
+            <List.Item style={{ textDecoration: complete && 'line-through'}}>
                 {goal}
                <List.Content floated='right' verticalAlign='middle'>
-                   <Button attached='left'>Complete</Button>
+                   <Button attached='left' onClick={() => handleComplete(goal)}>Complete</Button>
                    <Button attached='right' onClick={() => onRemove(goal)}>Clear</Button>
                </List.Content>
             </List.Item>
         )
-    }
 }
