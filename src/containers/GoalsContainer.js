@@ -35,7 +35,9 @@ export default function GoalContainer() {
                 </Grid.Row>
             </Grid>
 
-            <GoalList goals={goals} onRemove={handleRemove} />
+            <Grid.Row>
+                <GoalList goals={goals} onRemove={handleRemove} />
+            </Grid.Row>
         </Container>
     )
 }

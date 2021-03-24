@@ -23,7 +23,7 @@ export default function RewardsContainer() {
                     <Grid.Column>
                         <Header as='h1'>
                             <Icon name='gem outline'/>
-                            <Header.Content>Reward</Header.Content>
+                            <Header.Content>Rewards</Header.Content>
                         </Header>
                     </Grid.Column>
                 </Grid.Row>
@@ -35,7 +35,9 @@ export default function RewardsContainer() {
                 </Grid.Row>
             </Grid>
 
-            <RewardList rewards={rewards} onRemove={handleRemove} />
+            <Grid.Row>
+                <RewardList rewards={rewards} onRemove={handleRemove} />
+            </Grid.Row>
         </Container>
     )
 }
