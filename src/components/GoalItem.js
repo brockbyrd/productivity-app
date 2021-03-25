@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import useStickyState from '../customHooks/useStickyState'
 import { Button, List } from 'semantic-ui-react'
 
-export default function GoalItem({ goal, onRemove }) {
+export default function GoalItem({ goal, onRemove, points, setPoints }) {
     const [complete, setComplete] = useStickyState(false, 'complete')
 
     function handleComplete(goal){
         setComplete(!complete)
+        if (complete === false)
+            setPoints(points + 10)
     }
 
         return (

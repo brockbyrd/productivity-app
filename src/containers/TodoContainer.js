@@ -4,7 +4,7 @@ import TodoList from '../components/TodoList'
 import TodoInput from '../components/TodoInput'
 import { Grid, Header, Icon, Container } from 'semantic-ui-react';
 
-export default function TodoContainer() {
+export default function TodoContainer({ points, setPoints}) {
     const [todos, setTodos] = useStickyState([], 'todos')
 
     const addTodo = todo => {
@@ -36,7 +36,7 @@ export default function TodoContainer() {
             </Grid>
 
                 <Grid.Row>
-                    <TodoList todos={todos} onRemove={handleRemove} />
+                    <TodoList todos={todos} onRemove={handleRemove} points={points} setPoints={setPoints} />
                 </Grid.Row>
 
         </Container>

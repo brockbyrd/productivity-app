@@ -2,12 +2,12 @@ import React from 'react'
 import GoalItem from './GoalItem'
 import { List } from 'semantic-ui-react'
 
-export default function GoalList({ goals, onRemove }) {
+export default function GoalList({ goals, onRemove, points, setPoints }) {
     return (
         <List size="huge" divided verticalAlign='middle'>
             {goals.map((goal) =>
                 <>
-                    <GoalItem key={goal.id} goal={goal} onRemove={onRemove} />
+                    <GoalItem key={goal.id} goal={goal} onRemove={onRemove} points={points} setPoints={setPoints} />
                 </>
             )}
         </List>

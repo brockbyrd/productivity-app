@@ -4,7 +4,7 @@ import RewardList from '../components/RewardList'
 import RewardInput from '../components/RewardInput'
 import { Container, Grid, Header, Icon } from 'semantic-ui-react'
 
-export default function RewardsContainer() {
+export default function RewardsContainer({ points, setPoints }) {
     const [rewards, setRewards] = useStickyState([], 'rewards')
 
     const addReward = reward => {
@@ -36,7 +36,7 @@ export default function RewardsContainer() {
             </Grid>
 
             <Grid.Row>
-                <RewardList rewards={rewards} onRemove={handleRemove} />
+                <RewardList rewards={rewards} onRemove={handleRemove} points={points} setPoints={setPoints} />
             </Grid.Row>
         </Container>
     )

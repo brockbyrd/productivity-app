@@ -4,7 +4,7 @@ import GoalInput from '../components/GoalInput'
 import GoalList from '../components/GoalList'
 import { Grid, Header, Icon, Container } from 'semantic-ui-react';
 
-export default function GoalContainer() {
+export default function GoalContainer({ setPoints, points }) {
     const [goals, setGoals ] = useStickyState([], 'goals')
 
     const addGoal = goal => {
@@ -36,7 +36,7 @@ export default function GoalContainer() {
             </Grid>
 
             <Grid.Row>
-                <GoalList goals={goals} onRemove={handleRemove} />
+                <GoalList goals={goals} onRemove={handleRemove} points={points} setPoints={setPoints} />
             </Grid.Row>
         </Container>
     )
