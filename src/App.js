@@ -4,6 +4,7 @@ import { Grid } from 'semantic-ui-react';
 import TodoContainer from './containers/TodoContainer'
 import GoalsContainer from './containers/GoalsContainer'
 import RewardsContainer from './containers/RewardsContainer'
+import DecorationContainer from './containers/DecorationContainer'
 
 function App() {
   const [points, setPoints] = useStickyState(0, 'points')
@@ -12,7 +13,7 @@ function App() {
     <div className="app">
         <Grid columns={1} divided='vertically'>
           <Grid.Row>
-            <h1>{points}</h1>
+            <DecorationContainer points={points} />
           </Grid.Row>
 
           <Grid.Row columns={3}>

@@ -18,12 +18,12 @@ export default function RewardsContainer({ points, setPoints }) {
 
     return (
         <Container className="rewards__list">
-            <Grid centered columns={2}>
+            <Grid centered columns={3}>
                 <Grid.Row>
                     <Grid.Column>
                         <Header as='h1'>
-                            <Icon name='gem outline'/>
-                            <Header.Content>Rewards</Header.Content>
+                            <Icon name='star' style={{ color: 'white' }}/>
+                            <Header.Content style={{ color: 'white' }}>Rewards</Header.Content>
                         </Header>
                     </Grid.Column>
                 </Grid.Row>

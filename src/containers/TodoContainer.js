@@ -22,8 +22,8 @@ export default function TodoContainer({ points, setPoints}) {
                 <Grid.Row>
                     <Grid.Column>
                         <Header as='h1'>
-                            <Icon name='pencil'/>
-                            <Header.Content>Daily Todos</Header.Content>
+                            <Icon name='sun' style={{ color: 'white' }} />
+                            <Header.Content style={{ color: 'white' }}>Daily Todos</Header.Content>
                         </Header>
                     </Grid.Column>
                 </Grid.Row>
