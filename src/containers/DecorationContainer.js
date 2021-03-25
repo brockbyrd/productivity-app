@@ -1,8 +1,9 @@
+import { Icon } from 'semantic-ui-react'
 export default function DecorationContainer({ points }) {
 
     return(
         <>
-          <h1>Your Points: {points}</h1>
+          <h1><Icon name="space shuttle"/> {points}</h1>
         </>
     )
 }

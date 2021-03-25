@@ -22,7 +22,7 @@ export default function GoalContainer({ setPoints, points }) {
                 <Grid.Row>
                     <Grid.Column>
                         <Header as='h1'>
-                            <Icon name='space shuttle' style={{ color: 'white' }}/>
+                            <Icon name='moon' style={{ color: 'white' }}/>
                             <Header.Content style={{ color: 'white' }}>Weekly Goals</Header.Content>
                         </Header>
                     </Grid.Column>

@@ -4,7 +4,10 @@ import { Button, List } from 'semantic-ui-react';
 export default function RewardItem({ reward, onRemove, points, setPoints}) {
 
     function onRedeem(){
-        setPoints(points - 10)
+        if(points >= 25)
+            setPoints(points - 25)
+        else
+            alert(`You don't have enough points to redeem this reward! You need ${25 - points} more points to redeem!`)
     }
         return(
             <List.Item>
