@@ -13,7 +13,7 @@ export default function GoalItem({ goal, onRemove, points, setPoints, goalPoints
 
         return (
             <List.Item style={{ textDecoration: complete && 'line-through'}}>
-                {goal}{goalPoints}
+                {goal}
                <List.Content floated='right' verticalAlign='middle'>
                    <Button attached='left' onClick={() => handleComplete(goal)}>Complete</Button>
                    <Button attached='right' onClick={() => onRemove(goal)}>Clear</Button>
