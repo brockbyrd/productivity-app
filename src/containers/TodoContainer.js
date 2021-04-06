@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useStickyState from '../customHooks/useStickyState';
 import TodoList from '../components/TodoList'
 import TodoInput from '../components/TodoInput'
@@ -6,6 +6,14 @@ import { Grid, Header, Icon, Container } from 'semantic-ui-react';
 
 export default function TodoContainer({ points, setPoints}) {
     const [todos, setTodos] = useStickyState([], 'todos')
+
+    useEffect(() => {
+        fetch('/api').then(response => {
+            if(response.ok){
+                return response.json()
+            }
+        }).then(data => console.log(data))
+    }, [])
 
     const addTodo = todo => {
         let newTodo = [...todos, todo];
