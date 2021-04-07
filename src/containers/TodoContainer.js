@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import TodoList from '../components/TodoList'
+import TodoItem from '../components/TodoItem'
 import TodoInput from '../components/TodoInput'
-import { Grid, Header, Icon, Container } from 'semantic-ui-react';
+import { Grid, Header, Icon, Container, List } from 'semantic-ui-react';
 
 export default function TodoContainer({ points, setPoints}) {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-        fetch('/todos').then(response => {
-            if(response.ok){
-                return response.json()
-            }
-        }).then(data =>
-            setTodos(data))
-    }, [])
+        fetch("/todos").then(response =>
+            response.json().then(data => {
+                setTodos(data.todos);
+            })
+        );
+    }, []);
+
+    console.log(todos)
 
     const addTodo = todo => {
         let newTodo = [...todos, todo];
@@ -44,7 +45,13 @@ export default function TodoContainer({ points, setPoints}) {
             </Grid>
 
                 <Grid.Row>
-                    <TodoList todos={todos} onRemove={handleRemove} points={points} setPoints={setPoints} />
+                    <List size="huge" divided veritcalAlign='middle'>
+                    {todos.map((todo) => (
+                        <>
+                            <TodoItem key={todo.id} todo={todo.content} points={todo.points} onRemove={handleRemove} setPoints={setPoints} />
+                        </>
+                    ))}
+                    </List>
                 </Grid.Row>
 
         </Container>
