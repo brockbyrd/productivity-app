@@ -42,3 +42,21 @@ def goals():
 
     return jsonify({'goals' : goals})
 
+@main.route('/rewards')
+def add_reward():
+    reward_data = request.get_json()
+
+    new_reward = Reward(content=reward_data['content'], points=reward_data['points'])
+
+    db.session.add(new_reward)
+    db.session.commit()
+
+@main.route('/rewards')
+def rewards():
+    reward_list = Reward.query.all()
+    rewards = []
+
+    for reward in reward_list:
+        rewards.append({'content' : reward.content, 'points' : reward.points})
+
+    return jsonify({'rewards' : rewards})
