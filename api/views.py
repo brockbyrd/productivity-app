@@ -13,8 +13,6 @@ def add_todo():
     db.session.add(new_todo)
     db.session.commit()
 
-    return 'Done', 201
-
 @main.route('/todos')
 def todos():
     todo_list = Todo.query.all()
@@ -24,3 +22,23 @@ def todos():
         todos.append({'content' : todo.content, 'points' : todo.points})
 
     return jsonify({'todos' : todos})
+
+@main.route('/add_goal', methods=['POST'])
+def add_goal():
+    goal_data = request.get_json()
+
+    new_goal = Goal(content=goal_data['content'], points=goal_data['points'])
+
+    db.session.add(new_goal)
+    db.session.commit()
+
+@main.route('/goals')
+def goals():
+    goal_list = Goal.query.all()
+    goals = []
+
+    for goal in goal_list:
+        goals.append({'content' : goal.content, 'points' : goal.points})
+
+    return jsonify({'goals' : goals})
+
