@@ -1,11 +1,16 @@
-import React from 'react'
-import useStickyState from '../customHooks/useStickyState'
-import RewardList from '../components/RewardList'
+import React, { useEffect, useState } from 'react'
+import RewardItem from '../components/RewardItem'
 import RewardInput from '../components/RewardInput'
-import { Container, Grid, Header, Icon } from 'semantic-ui-react'
+import { Container, Grid, Header, Icon, List } from 'semantic-ui-react'
 
 export default function RewardsContainer({ points, setPoints }) {
-    const [rewards, setRewards] = useStickyState([], 'rewards')
+    const [rewards, setRewards] = useState([]);
+
+    useEffect(() =>
+    fetch('/rewards').then(response =>
+        response.json().then(data =>{
+            setRewards(data.rewards)
+        })))
 
     const addReward = reward => {
         let newReward = [...rewards, reward];
@@ -36,7 +41,13 @@ export default function RewardsContainer({ points, setPoints }) {
             </Grid>
 
             <Grid.Row>
-                <RewardList rewards={rewards} onRemove={handleRemove} points={points} setPoints={setPoints} />
+               <List size="huge" divided veritcalAlign='middle'>
+                {rewards.map((reward) =>
+                    <>
+                        <RewardItem key={reward.id} reward={reward.content} onRemove={handleRemove} points={reward.points} setPoints={setPoints} />
+                    </>
+                )}
+               </List>
             </Grid.Row>
         </Container>
     )

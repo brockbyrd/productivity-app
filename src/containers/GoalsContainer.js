@@ -1,8 +1,8 @@
 import React from 'react'
 import useStickyState from '../customHooks/useStickyState'
 import GoalInput from '../components/GoalInput'
-import GoalList from '../components/GoalList'
-import { Grid, Header, Icon, Container } from 'semantic-ui-react';
+import GoalItem from '../components/GoalItem'
+import { Grid, Header, Icon, Container, List } from 'semantic-ui-react';
 
 export default function GoalContainer({ setPoints, points }) {
     const [goals, setGoals ] = useStickyState([], 'goals')
@@ -36,7 +36,13 @@ export default function GoalContainer({ setPoints, points }) {
             </Grid>
 
             <Grid.Row>
-                <GoalList goals={goals} onRemove={handleRemove} points={points} setPoints={setPoints} />
+                <List>
+                    {goals.map((goal) =>
+                    <>
+                        <GoalItem key={goal.id} goal={goal.content} onRemove={handleRemove} points={goal.points} setPoints={setPoints} />
+                    </>
+                    )}
+                </List>
             </Grid.Row>
         </Container>
     )
