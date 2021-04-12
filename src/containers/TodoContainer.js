@@ -14,8 +14,6 @@ export default function TodoContainer({ points, setPoints}) {
         );
     }, []);
 
-    console.log(todos)
-
     const addTodo = todo => {
         let newTodo = [...todos, todo];
         setTodos(newTodo)

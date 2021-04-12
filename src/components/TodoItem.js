@@ -13,7 +13,7 @@ export default function TodoItem ({ todo, onRemove, points, setPoints }) {
 
         return (
             <List.Item style={{ textDecoration: complete && 'line-through'}}>
-                {todo}
+                {todo} {points}
                 <List.Content floated='right'>
                     <Button attached='left' onClick={() => handleComplete(todo)}>Complete</Button>
                     <Button attached='right' onClick={() => onRemove(todo)}>Clear</Button>
