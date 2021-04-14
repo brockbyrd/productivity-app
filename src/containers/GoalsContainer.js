@@ -27,7 +27,7 @@ export default function GoalContainer({ setPoints, points }) {
 
                 <Grid.Row centered columns={1}>
                     <Grid.Column>
-                        <GoalInput onNewGoals={goal => setGoals(currentGoals => [goal, ...currentGoals])} />
+                        <GoalInput onNewGoal={goal => setGoals(currentGoals => [goal, ...currentGoals])} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
