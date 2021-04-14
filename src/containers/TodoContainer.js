@@ -14,11 +14,6 @@ export default function TodoContainer({ points, setPoints}) {
         );
     }, []);
 
-    const addTodo = todo => {
-        let newTodo = [...todos, todo];
-        setTodos(newTodo)
-    }
-
     function handleRemove(todo) {
         setTodos(todos.filter(t => t !== todo))
     }
@@ -37,7 +32,7 @@ export default function TodoContainer({ points, setPoints}) {
 
                 <Grid.Row centered columns={1}>
                     <Grid.Column>
-                        <TodoInput addTodo={addTodo} />
+                        <TodoInput onNewTodo={todo => setTodos(currentTodos => [todo, ...currentTodos])} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
