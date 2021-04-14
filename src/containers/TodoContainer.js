@@ -14,10 +14,6 @@ export default function TodoContainer({ points, setPoints}) {
         );
     }, []);
 
-    function handleRemove(todo) {
-        setTodos(todos.filter(t => t !== todo))
-    }
-
     return (
         <Container className="todos__list">
             <Grid centered columns={2}>
@@ -41,7 +37,7 @@ export default function TodoContainer({ points, setPoints}) {
                     <List size="huge" divided veritcalAlign='middle'>
                     {todos.map((todo) => (
                         <>
-                            <TodoItem key={todo.id} todo={todo.content} points={todo.points} onRemove={handleRemove} setPoints={setPoints} />
+                            <TodoItem key={todo.id} todo={todo.content} points={todo.points} setPoints={setPoints} />
                         </>
                     ))}
                     </List>
