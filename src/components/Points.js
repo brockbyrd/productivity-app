@@ -3,7 +3,7 @@ export default function DecorationContainer({ points }) {
 
     return(
         <>
-          <h1><Icon name="rocket"/> {points}</h1>
+          <h1><Icon name="star"/> {points}</h1>
         </>
     )
 }

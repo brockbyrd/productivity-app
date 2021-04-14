@@ -27,7 +27,7 @@ export default function RewardsContainer({ points, setPoints }) {
                 <Grid.Row>
                     <Grid.Column>
                         <Header as='h1'>
-                            <Icon name='star' style={{ color: 'white' }}/>
+                            <Icon name='rocket' style={{ color: 'white' }}/>
                             <Header.Content style={{ color: 'white' }}>Rewards</Header.Content>
                         </Header>
                     </Grid.Column>
