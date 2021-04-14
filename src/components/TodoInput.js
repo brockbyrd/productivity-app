@@ -1,40 +1,54 @@
 import React, { useState } from 'react'
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Input, Button, Rating } from 'semantic-ui-react'
 
-export default function TodoInput({ addTodo }) {
+export default function TodoInput({ onNewTodo }) {
     const [content, setContent] = useState('');
     const [points, setPoints] = useState(5);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const todo = { content };
-        const response = fetch('/add_todo', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(todo)
-        });
-
-        if (response.ok){
-            console.log("IT WORKED")
-        }
-    }
-
     return (
-        <Form className="todo__form" onSubmit={handleSubmit}>
+        <Form className="todo__form">
             <Form.Field>
-                <Form.Group>
-                    <Input
-                        icon='plus'
-                        iconPosition='left'
-                        type="text"
-                        name="todo"
-                        value={content}
-                        placeholder="Add Daily Todo"
-                        onChange={e => setContent(e.target.value)} />
-                    <Form.Button type="submit" value="Add Todo">Add Todo</Form.Button>
-                </Form.Group>
+                <Input
+                    icon='plus'
+                    iconPosition='left'
+                    type="text"
+                    name="todo"
+                    value={content}
+                    placeholder="Add Daily Todo"
+                    onChange={e => setContent(e.target.value)} />
+            </Form.Field>
+            <Form.Field>
+                <Rating
+                    icon='star'
+                    rating={points}
+                    maxRating={5}
+                    onRate={(_, data) => {
+                        setPoints(data.rating)
+                    }}
+                />
+            </Form.Field>
+            <Form.Field>
+            <Button
+                type="submit"
+                value="Add Todo"
+                onClick={async () =>{
+                    const todo = { content, points };
+                    const response = await fetch("/add_todo", {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(todo)
+                         });
+
+                        if (response.ok){
+                            console.log("it worked")
+                            onNewTodo(todo);
+                            setContent('');
+                            setPoints(5);
+                        }
+                    }}>
+                    Add Todo</Button>
             </Form.Field>
         </Form>
     )
