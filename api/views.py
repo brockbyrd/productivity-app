@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from . import db
-from .models import Todo
+from .models import Todo, Goals
 
 main = Blueprint('main', __name__)
 
@@ -29,24 +29,24 @@ def todos():
 
     return jsonify({'todos' : todos})
 
-# @main.route('/add_goal', methods=['POST'])
-# def add_goal():
-#     goal_data = request.get_json()
+@main.route('/add_goal', methods=['POST'])
+def add_goal():
+    goal_data = request.get_json()
 
-#     new_goal = Goal(content=goal_data['content'], points=goal_data['points'])
+    new_goal = Goal(content=goal_data['content'], points=goal_data['points'])
 
-#     db.session.add(new_goal)
-#     db.session.commit()
+    db.session.add(new_goal)
+    db.session.commit()
 
-# @main.route('/goals')
-# def goals():
-#     goal_list = Goal.query.all()
-#     goals = []
+@main.route('/goals')
+def goals():
+    goal_list = Goal.query.all()
+    goals = []
 
-#     for goal in goal_list:
-#         goals.append({'content' : goal.content, 'points' : goal.points})
+    for goal in goal_list:
+        goals.append({'content' : goal.content, 'points' : goal.points})
 
-#     return jsonify({'goals' : goals})
+    return jsonify({'goals' : goals})
 
 # @main.route('/rewards')
 # def add_reward():
