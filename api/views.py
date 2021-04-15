@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from . import db
-from .models import Todo, Goals
+from .models import Todo, Goal, Reward
 
 main = Blueprint('main', __name__)
 
@@ -38,6 +38,8 @@ def add_goal():
     db.session.add(new_goal)
     db.session.commit()
 
+    return 'Done', 201
+
 @main.route('/goals')
 def goals():
     goal_list = Goal.query.all()
@@ -48,21 +50,21 @@ def goals():
 
     return jsonify({'goals' : goals})
 
-# @main.route('/rewards')
-# def add_reward():
-#     reward_data = request.get_json()
+@main.route('/add_reward')
+def add_reward():
+    reward_data = request.get_json()
 
-#     new_reward = Reward(content=reward_data['content'], points=reward_data['points'])
+    new_reward = Reward(content=reward_data['content'], points=reward_data['points'])
 
-#     db.session.add(new_reward)
-#     db.session.commit()
+    db.session.add(new_reward)
+    db.session.commit()
 
-# @main.route('/rewards')
-# def rewards():
-#     reward_list = Reward.query.all()
-#     rewards = []
+@main.route('/rewards')
+def rewards():
+    reward_list = Reward.query.all()
+    rewards = []
 
-#     for reward in reward_list:
-#         rewards.append({'content' : reward.content, 'points' : reward.points})
+    for reward in reward_list:
+        rewards.append({'content' : reward.content, 'points' : reward.points})
 
-#     return jsonify({'rewards' : rewards})
+    return jsonify({'rewards' : rewards})
