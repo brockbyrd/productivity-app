@@ -50,7 +50,7 @@ def goals():
 
     return jsonify({'goals' : goals})
 
-@main.route('/add_reward')
+@main.route('/add_reward', methods=['POST'])
 def add_reward():
     reward_data = request.get_json()
 

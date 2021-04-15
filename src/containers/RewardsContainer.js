@@ -6,20 +6,13 @@ import { Container, Grid, Header, Icon, List } from 'semantic-ui-react'
 export default function RewardsContainer({ points, setPoints }) {
     const [rewards, setRewards] = useState([]);
 
-    useEffect(() =>
-    fetch('/rewards').then(response =>
-        response.json().then(data =>{
-            setRewards(data.rewards)
-        })))
-
-    const addReward = reward => {
-        let newReward = [...rewards, reward];
-        setRewards(newReward)
-    }
-
-    function handleRemove(reward){
-        setRewards(rewards.filter(r => r !== reward))
-    }
+    useEffect(() => {
+        fetch("/rewards").then(response =>
+            response.json().then(data => {
+                setRewards(data.rewards);
+            })
+        )
+    }, []);
 
     return (
         <Container className="rewards__list">
@@ -35,16 +28,16 @@ export default function RewardsContainer({ points, setPoints }) {
 
                 <Grid.Row centered columns={1}>
                     <Grid.Column>
-                        <RewardInput addReward={addReward} />
+                        <RewardInput onNewReward={reward => setRewards(currentRewards => [reward, ...currentRewards])} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
 
             <Grid.Row>
-               <List size="huge" divided veritcalAlign='middle'>
+               <List size="huge" divided verticalAlign='middle'>
                 {rewards.map((reward) =>
                     <>
-                        <RewardItem key={reward.id} reward={reward.content} onRemove={handleRemove} points={reward.points} setPoints={setPoints} />
+                        <RewardItem key={reward.id} reward={reward.content} points={reward.points} setPoints={setPoints} />
                     </>
                 )}
                </List>

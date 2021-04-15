@@ -34,7 +34,7 @@ export default function GoalContainer({ setPoints, points }) {
             </Grid>
 
             <Grid.Row>
-                <List size="huge" divided veritcalAlign='middle'>
+                <List size="huge" divided verticalAlign='middle'>
                     {goals.map((goal) =>
                     <>
                         <GoalItem key={goal.id} goal={goal.content} points={goal.points} setPoints={setPoints} />

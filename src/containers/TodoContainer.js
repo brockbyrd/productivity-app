@@ -34,7 +34,7 @@ export default function TodoContainer({ points, setPoints}) {
             </Grid>
 
                 <Grid.Row>
-                    <List size="huge" divided veritcalAlign='middle'>
+                    <List size="huge" divided verticalAlign='middle'>
                     {todos.map((todo) => (
                         <>
                             <TodoItem key={todo.id} todo={todo.content} points={todo.points} setPoints={setPoints} />
