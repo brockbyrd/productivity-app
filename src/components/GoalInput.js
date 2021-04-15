@@ -15,13 +15,13 @@ export default function GoalInput({ onNewGoal }) {
                     name="goal"
                     value={content}
                     placeholder="Add Weekly Goal"
-                    onChange={e => setContent(e.target.value)}
-                />
+                    onChange={e => setContent(e.target.value)} />
             </Form.Field>
 
             <Form.Field>
                 <Rating
                     icon='star'
+                    style={{ color: 'white' }}
                     rating={points}
                     maxRating={10}
                     onRate={(_, data) => {
