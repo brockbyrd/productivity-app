@@ -9,6 +9,8 @@ export default function RewardItem({ reward, onRemove, points, setPoints}) {
         else
             alert(`You don't have enough points to redeem this reward! You need ${25 - points} more points to redeem!`)
     }
+
+
         return(
             <List.Item>
                 {reward}

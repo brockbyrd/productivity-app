@@ -59,6 +59,8 @@ def add_reward():
     db.session.add(new_reward)
     db.session.commit()
 
+    return 'Done', 201
+
 @main.route('/rewards')
 def rewards():
     reward_list = Reward.query.all()
