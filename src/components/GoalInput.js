@@ -19,6 +19,7 @@ export default function GoalInput({ onNewGoal }) {
             </Form.Field>
 
             <Form.Field>
+            <p>{points}/{10}</p>
                 <Rating
                     icon='star'
                     style={{ color: 'white' }}

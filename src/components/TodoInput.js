@@ -18,6 +18,7 @@ export default function TodoInput({ onNewTodo }) {
                     onChange={e => setContent(e.target.value)} />
             </Form.Field>
             <Form.Field>
+                <p>{points}/{5}</p>
                 <Rating
                     icon='star'
                     rating={points}

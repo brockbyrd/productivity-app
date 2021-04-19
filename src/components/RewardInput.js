@@ -19,6 +19,29 @@ export default function RewardInput({ onNewReward }) {
                 </Form.Field>
 
                 <Form.Field>
+                        <Button
+                            type="submit"
+                            value="Add Reward"
+                            onClick={async () => {
+                                const reward = {content, points};
+                                const response = await fetch("/add_reward", {
+                                    method: "POST",
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(reward)
+                                });
+
+                                if (response.ok){
+                                    console.log("it worked")
+                                    onNewReward(reward);
+                                    setContent('');
+                                    setPoints(15);
+                                }
+                            }}>Add Reward</Button>
+                </Form.Field>
+
+                <Form.Field>
                     <p>{points}/{15}</p>
                     <Rating
                         icon='star'
@@ -28,29 +51,6 @@ export default function RewardInput({ onNewReward }) {
                             setPoints(data.rating)
                         }}
                     />
-                </Form.Field>
-
-                <Form.Field>
-                    <Button
-                        type="submit"
-                        value="Add Reward"
-                        onClick={async () => {
-                            const reward = {content, points};
-                            const response = await fetch("/add_reward", {
-                                method: "POST",
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(reward)
-                            });
-
-                            if (response.ok){
-                                console.log("it worked")
-                                onNewReward(reward);
-                                setContent('');
-                                setPoints(15);
-                            }
-                        }}>Add Reward</Button>
                 </Form.Field>
 
             </Form>
