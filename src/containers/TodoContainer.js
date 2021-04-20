@@ -37,7 +37,14 @@ export default function TodoContainer({ points, setPoints}) {
                     <List size="huge" divided verticalAlign='middle'>
                     {todos.map((todo) => (
                         <>
-                            <TodoItem key={todo.id} todo={todo.content} points={todo.points} setPoints={setPoints} />
+                            {todo.id}
+                            {/* <TodoItem
+                                key={todo.id}
+                                todoId = {todo.id}
+                                todo={todo.content}
+                                points={todo.points}
+                                setPoints={setPoints}
+                                /> */}
                         </>
                     ))}
                     </List>
