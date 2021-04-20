@@ -29,6 +29,15 @@ def todos():
 
     return jsonify({'todos' : todos})
 
+@main.route('/todo/<int:id>', methods=['DELETE'])
+def delete_todo(id):
+   todo = Todo.query.get(id)
+
+   db.session.delete(todo)
+   db.session.commit()
+
+   return "Done", 201
+
 @main.route('/add_goal', methods=['POST'])
 def add_goal():
     goal_data = request.get_json()
