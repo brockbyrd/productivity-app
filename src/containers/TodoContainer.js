@@ -14,6 +14,17 @@ export default function TodoContainer({ points, setPoints}) {
         );
     }, []);
 
+    function handleRemove(id)  {
+        fetch('/todo/'+id, {
+            method: 'DELETE',
+            header: {
+                'Accept' : 'application/json',
+                'Content-Type': 'application/json',
+        }
+        })
+        setTodos(todos.filter(todo => todo.id !== id))
+    }
+
     return (
         <Container className="todos__list">
             <Grid centered columns={2}>
@@ -28,7 +39,7 @@ export default function TodoContainer({ points, setPoints}) {
 
                 <Grid.Row centered columns={1}>
                     <Grid.Column>
-                        <TodoInput onNewTodo={todo => setTodos(currentTodos => [todo, ...currentTodos])} />
+                        <TodoInput todos={todos} setTodos={setTodos} onNewTodo={todo => setTodos(currentTodos => [todo, ...currentTodos])} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
@@ -37,14 +48,14 @@ export default function TodoContainer({ points, setPoints}) {
                     <List size="huge" divided verticalAlign='middle'>
                     {todos.map((todo) => (
                         <>
-                            {todo.id}
-                            {/* <TodoItem
+                            <TodoItem
                                 key={todo.id}
-                                todoId = {todo.id}
+                                id={todo.id}
                                 todo={todo.content}
                                 points={todo.points}
                                 setPoints={setPoints}
-                                /> */}
+                                handleRemove={handleRemove}
+                                />
                         </>
                     ))}
                     </List>
