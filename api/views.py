@@ -12,7 +12,7 @@ def print_error(err):
 def add_todo():
     todo_data = request.get_json()
 
-    new_todo = Todo(content=todo_data['content'], points=todo_data['points'])
+    new_todo = Todo(id=todo_data['id'], content=todo_data['content'], points=todo_data['points'])
 
     db.session.add(new_todo)
     db.session.commit()
@@ -25,13 +25,17 @@ def todos():
     todos = []
 
     for todo in todo_list:
-        todos.append({'content' : todo.content, 'points' : todo.points})
+        todos.append({'id' : todo.id, 'content' : todo.content, 'points' : todo.points})
 
     return jsonify({'todos' : todos})
 
-@main.route('/todo/<int:id>', methods=['DELETE'])
+@main.route('/todo/<id>', methods=['DELETE'])
 def delete_todo(id):
+   response = {}
    todo = Todo.query.get(id)
+   response['id'] = todo.id
+
+
 
    db.session.delete(todo)
    db.session.commit()
