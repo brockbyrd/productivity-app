@@ -17,6 +17,7 @@ export default function TodoInput({ onNewTodo }) {
                     placeholder="Add Daily Todo"
                     onChange={e => setContent(e.target.value)} />
             </Form.Field>
+
             <Form.Field>
                 <p>{points}/{5}</p>
                 <Rating
@@ -28,6 +29,7 @@ export default function TodoInput({ onNewTodo }) {
                     }}
                 />
             </Form.Field>
+
             <Form.Field>
             <Button
                 type="submit"
