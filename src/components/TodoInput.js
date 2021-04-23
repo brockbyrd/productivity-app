@@ -40,10 +40,10 @@ export default function TodoInput({ onNewTodo }) {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify(todo)
-                         });
+                        })
 
                         if (response.ok){
-                            console.log("it worked")
+                            console.log(todo.id)
                             onNewTodo(todo);
                             setContent('');
                             setPoints(5);

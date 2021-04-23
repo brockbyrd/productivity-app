@@ -12,7 +12,7 @@ export default function TodoContainer({ points, setPoints}) {
                 setTodos(data.todos);
             })
         );
-    }, []);
+    }, [todos]);
 
     function handleRemove(id)  {
         fetch('/todo/'+id, {

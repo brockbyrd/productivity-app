@@ -12,7 +12,7 @@ def print_error(err):
 def add_todo():
     todo_data = request.get_json()
 
-    new_todo = Todo(id=todo_data['id'], content=todo_data['content'], points=todo_data['points'])
+    new_todo = Todo(content=todo_data['content'], points=todo_data['points'])
 
     db.session.add(new_todo)
     db.session.commit()
