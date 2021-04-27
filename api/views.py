@@ -94,3 +94,14 @@ def rewards():
         rewards.append({'content' : reward.content, 'points' : reward.points})
 
     return jsonify({'rewards' : rewards})
+
+@main.route('/reward/<id>', methods=['DELETE'])
+def delete_reward():
+    response = {}
+    reward = Reward.query.get(id)
+    response['id'] = reward.id
+
+    db.session.delete(reward)
+    db.session.commit()
+
+    return 'Done', 201
