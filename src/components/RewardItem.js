@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, List } from 'semantic-ui-react';
 
-export default function RewardItem({ reward, onRemove, points, setPoints}) {
+export default function RewardItem({ reward, points, setPoints, handleRemove, id}) {
 
     function onRedeem(){
         if(points >= 25)
@@ -13,10 +13,10 @@ export default function RewardItem({ reward, onRemove, points, setPoints}) {
 
         return(
             <List.Item>
-                {reward}
+                {id} {reward} {points}
                 <List.Content floated='right' verticalAlign='middle'>
-                    <Button attached='left' onClick={() => onRedeem()}>Redeem</Button>
-                    <Button attached='right' onClick={() => onRemove(reward)}>Clear</Button>
+                    <Button attached='left' onClick={() => onRedeem(reward)}>Redeem</Button>
+                    <Button attached='right' onClick={() => handleRemove(id)}>Clear</Button>
                 </List.Content>
             </List.Item>
         )
