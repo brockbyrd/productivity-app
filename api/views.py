@@ -40,7 +40,7 @@ def delete_todo(id):
    db.session.delete(todo)
    db.session.commit()
 
-   return "Done", 201
+   return 'Done', 201
 
 @main.route('/add_goal', methods=['POST'])
 def add_goal():
@@ -59,9 +59,20 @@ def goals():
     goals = []
 
     for goal in goal_list:
-        goals.append({'content' : goal.content, 'points' : goal.points})
+        goals.append({'id' : goal.id, 'content' : goal.content, 'points' : goal.points})
 
     return jsonify({'goals' : goals})
+
+@main.route('/goal/<id>', methods=['DELETE'])
+def delete_goal(id):
+    response = {}
+    goal = Goal.query.get(id)
+    response['id'] = goal.id
+
+    db.session.delete(goal)
+    db.session.commit()
+
+    return 'Done', 201
 
 @main.route('/add_reward', methods=['POST'])
 def add_reward():

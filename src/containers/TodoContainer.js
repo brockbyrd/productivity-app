@@ -39,7 +39,7 @@ export default function TodoContainer({ points, setPoints}) {
 
                 <Grid.Row centered columns={1}>
                     <Grid.Column>
-                        <TodoInput todos={todos} setTodos={setTodos} onNewTodo={todo => setTodos(currentTodos => [...currentTodos, todo])} />
+                        <TodoInput onNewTodo={todo => setTodos(currentTodos => [...currentTodos, todo])} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
