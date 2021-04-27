@@ -12,7 +12,18 @@ export default function GoalContainer({ setPoints, points }) {
                 setGoals(data.goals)
             })
         );
-    }, []);
+    }, [goals.length]);
+
+    function handleRemove(id){
+        fetch('/goal/'+id, {
+            method: 'DELETE',
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+        setGoals(goals.filter(goal => goal.id !== id))
+    }
 
     return (
         <Container className="goals__container">
@@ -37,7 +48,14 @@ export default function GoalContainer({ setPoints, points }) {
                 <List size="huge" divided verticalAlign='middle'>
                     {goals.map((goal) =>
                     <>
-                        <GoalItem key={goal.id} goal={goal.content} points={goal.points} setPoints={setPoints} />
+                        <GoalItem
+                            key={goal.id}
+                            id={goal.id}
+                            goal={goal.content}
+                            points={goal.points}
+                            setPoints={setPoints}
+                            handleRemove={handleRemove}
+                            />
                     </>
                     )}
                 </List>

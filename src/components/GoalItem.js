@@ -2,7 +2,7 @@ import React from 'react'
 import useStickyState from '../customHooks/useStickyState'
 import { Button, List } from 'semantic-ui-react'
 
-export default function GoalItem({ goal, onRemove, points, setPoints, goalPoints }) {
+export default function GoalItem({ goal, onRemove, points, setPoints, handleRemove, id }) {
     const [complete, setComplete] = useStickyState(false, 'complete')
 
     function handleComplete(goal){
@@ -13,10 +13,10 @@ export default function GoalItem({ goal, onRemove, points, setPoints, goalPoints
 
         return (
             <List.Item style={{ textDecoration: complete && 'line-through'}}>
-                {goal}
+                {id} {goal} {points}
                <List.Content floated='right' verticalAlign='middle'>
                    <Button attached='left' onClick={() => handleComplete(goal)}>Complete</Button>
-                   <Button attached='right' onClick={() => onRemove(goal)}>Clear</Button>
+                   <Button attached='right' onClick={() => handleRemove(id)}>Clear</Button>
                </List.Content>
             </List.Item>
         )
