@@ -91,12 +91,12 @@ def rewards():
     rewards = []
 
     for reward in reward_list:
-        rewards.append({'content' : reward.content, 'points' : reward.points})
+        rewards.append({'id' : reward.id, 'content' : reward.content, 'points' : reward.points})
 
     return jsonify({'rewards' : rewards})
 
 @main.route('/reward/<id>', methods=['DELETE'])
-def delete_reward():
+def delete_reward(id):
     response = {}
     reward = Reward.query.get(id)
     response['id'] = reward.id
