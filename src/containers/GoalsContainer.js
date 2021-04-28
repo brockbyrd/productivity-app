@@ -3,7 +3,7 @@ import GoalInput from '../components/GoalInput'
 import GoalItem from '../components/GoalItem'
 import { Grid, Header, Icon, Container, List } from 'semantic-ui-react';
 
-export default function GoalContainer({ setPoints, points }) {
+export default function GoalContainer({ setOverallPoints, overallPoints }) {
     const [goals, setGoals] = useState([]);
 
     useEffect(() => {
@@ -53,7 +53,8 @@ export default function GoalContainer({ setPoints, points }) {
                             id={goal.id}
                             goal={goal.content}
                             points={goal.points}
-                            setPoints={setPoints}
+                            overallPoints={overallPoints}
+                            setOverallPoints={setOverallPoints}
                             handleRemove={handleRemove}
                             />
                     </>
