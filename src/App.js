@@ -7,7 +7,7 @@ import RewardsContainer from './containers/RewardsContainer'
 import Points from './components/Points'
 
 function App() {
-  const [points, setPoints] = useStickyState(0, 'points')
+  const [overallPoints, setOverallPoints] = useStickyState(0, 'points')
 
   return (
     <div className="app">
@@ -21,20 +21,20 @@ function App() {
           </Grid.Row>
 
           <Grid.Row centered>
-            <Points points={points} />
+            <Points overallPoints={overallPoints} />
           </Grid.Row>
 
           <Grid.Row columns={3}>
             <Grid.Column>
-              <GoalsContainer setPoints={setPoints} points={points} />
+              <GoalsContainer setOverallPoints={setOverallPoints} overallPoints={overallPoints} />
             </Grid.Column>
 
             <Grid.Column>
-              <TodoContainer setPoints={setPoints} points={points} />
+              <TodoContainer setOverallPoints={setOverallPoints} overallPoints={overallPoints} />
             </Grid.Column>
 
             <Grid.Column>
-              <RewardsContainer setPoints={setPoints} points={points} />
+              <RewardsContainer setOverallPoints={setOverallPoints} overallPoints={overallPoints} />
             </Grid.Column>
 
           </Grid.Row>

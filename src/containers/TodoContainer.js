@@ -3,7 +3,7 @@ import TodoItem from '../components/TodoItem'
 import TodoInput from '../components/TodoInput'
 import { Grid, Header, Icon, Container, List } from 'semantic-ui-react';
 
-export default function TodoContainer({ points, setPoints}) {
+export default function TodoContainer({ overallPoints, setOverallPoints}) {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
@@ -53,7 +53,8 @@ export default function TodoContainer({ points, setPoints}) {
                                 id={todo.id}
                                 todo={todo.content}
                                 points={todo.points}
-                                setPoints={setPoints}
+                                overallPoints={overallPoints}
+                                setOverallPoints={setOverallPoints}
                                 handleRemove={handleRemove}
                                 />
                         </>
