@@ -1,6 +1,6 @@
 import React from 'react'
 import useStickyState from '../customHooks/useStickyState'
-import { Button, List } from 'semantic-ui-react'
+import { Button, List, Icon } from 'semantic-ui-react'
 
 export default function TodoItem ({ todo, overallPoints, setOverallPoints, points, handleRemove, id }) {
     const [complete, setComplete] = useStickyState(false, 'complete')
@@ -15,8 +15,9 @@ export default function TodoItem ({ todo, overallPoints, setOverallPoints, point
 
         return (
             <List.Item style={{ textDecoration: complete && 'line-through'}}>
-                {id} {todo} {points}
+                {todo}
                 <List.Content floated='right'>
+                    <Icon name='star' style={{ color: 'gold' }}/>{points}
                     <Button attached='left' onClick={() => handleComplete(todo)}>Complete</Button>
                     <Button attached='right' onClick={() => handleRemove(id)}>Clear</Button>
                 </List.Content>

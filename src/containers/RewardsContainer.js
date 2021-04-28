@@ -3,7 +3,7 @@ import RewardItem from '../components/RewardItem'
 import RewardInput from '../components/RewardInput'
 import { Container, Grid, Header, Icon, List } from 'semantic-ui-react'
 
-export default function RewardsContainer({ points, setPoints }) {
+export default function RewardsContainer({ overallPoints, setOverallPoints }) {
     const [rewards, setRewards] = useState([]);
 
     useEffect(() => {
@@ -53,7 +53,8 @@ export default function RewardsContainer({ points, setPoints }) {
                             id={reward.id}
                             reward={reward.content}
                             points={reward.points}
-                            setPoints={setPoints}
+                            overallPoints={overallPoints}
+                            setOverallPoints={setOverallPoints}
                             handleRemove={handleRemove}
                         />
                     </>
